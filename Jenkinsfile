@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 // Create deploy_dir and index.html
-                bat '''
+                sh '''
                     mkdir deploy_dir
                     echo ^<html^>^<head^>^<title^>My App^</title^>^</head^>^<body^>^<h1^>Hello from Jenkins Pipeline!^</h1^>^</body^>^</html^> > deploy_dir\\index.html
                 '''
