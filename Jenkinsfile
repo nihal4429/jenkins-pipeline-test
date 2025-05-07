@@ -14,7 +14,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                echo 'Application deployed at: http://localhost:8080/myapp'
+                sh '''
+                    mkdir -p deploy_dir
+                    cp index.html deploy_dir/
+                    cd deploy_dir
+                    nohup python3 -m http.server 5000 &
+                '''
             }
         }
     }
